@@ -5,7 +5,7 @@ const navGroups = [
   "shoes",
   "bags",
   "accessories",
-  "home & furniture",
+  "home decor",
   "beauty",
   "gifts",
   "sale",
