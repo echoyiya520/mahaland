@@ -1,169 +1,136 @@
-const featuredItems = [
+const categoryFocus = [
   {
-    name: "茶杯",
-    subtitle: "Hand-finished tea cups",
-    price: "$48",
-    description:
-      "Warm clay tones, balanced weight, and a quiet shape designed for slow tea rituals.",
-    note: "Small-batch firing",
+    name: "串珠首饰",
+    en: "Beaded Jewelry",
+    note: "Etsy 热销：手工感 + 礼物属性强",
+    products: ["天然石手串", "珍珠项链", "玻璃珠耳饰"],
   },
   {
-    name: "珠串",
-    subtitle: "Meditation bead strands",
-    price: "$72",
-    description:
-      "Natural wood and stone beads selected for texture, rhythm, and everyday wear.",
-    note: "108-bead and wrist styles",
+    name: "茶杯与茶具",
+    en: "Tea Cups & Tea Ritual",
+    note: "Etsy 热销：生活方式场景驱动复购",
+    products: ["手作陶瓷杯", "茶托套组", "日式马克杯"],
   },
   {
-    name: "禅香",
-    subtitle: "Zen incense collection",
-    price: "$28",
-    description:
-      "Soft aromatic blends for reading corners, studio mornings, and evening stillness.",
-    note: "Low-smoke sandalwood blend",
+    name: "线香与香具",
+    en: "Incense & Holders",
+    note: "Etsy 热销：情绪价值高，适合礼盒组合",
+    products: ["檀香线香", "黄铜香插", "香盘与收纳盒"],
   },
+  {
+    name: "书法与画作",
+    en: "Calligraphy & Art Prints",
+    note: "Etsy 热销：墙面装饰需求稳定",
+    products: ["原创书法", "水墨版画", "小尺幅装饰画"],
+  },
+  {
+    name: "亚麻衣服",
+    en: "Linen Clothing",
+    note: "Etsy 热销：舒适面料 + 慢生活叙事",
+    products: ["亚麻衬衫", "宽松长裙", "居家外搭"],
+  },
+];
+
+const bestsellers = [
+  { name: "Natural Bead Bracelet Set", price: "$36", tag: "Best Seller" },
+  { name: "Handmade Ceramic Tea Cup", price: "$48", tag: "Popular Gift" },
+  { name: "Brass Incense Holder", price: "$32", tag: "Trending" },
+  { name: "Ink Calligraphy Print", price: "$58", tag: "Editor Pick" },
+  { name: "Relaxed Linen Shirt", price: "$69", tag: "Most Loved" },
+  { name: "Pearl Bead Necklace", price: "$52", tag: "Top Rated" },
 ];
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#efe5d7] text-stone-900">
-      <section className="mx-auto flex w-full max-w-6xl flex-col gap-16 px-6 py-10 sm:px-10 lg:px-12">
-        <header className="flex flex-col gap-8 rounded-[2rem] border border-stone-900/10 bg-white/55 px-6 py-8 shadow-[0_20px_80px_rgba(83,54,26,0.08)] backdrop-blur sm:px-10">
-          <div className="flex flex-col gap-4 border-b border-stone-900/10 pb-6 sm:flex-row sm:items-end sm:justify-between">
+    <main className="min-h-screen bg-[#f5f0e9] text-[#2e251d]">
+      <div className="mx-auto flex w-full max-w-7xl flex-col gap-12 px-5 py-8 sm:px-8 lg:px-10">
+        <header className="rounded-3xl border border-[#d7cabb] bg-[#efe3d4] px-6 py-6 shadow-sm sm:px-8">
+          <div className="flex flex-col gap-5 border-b border-[#cdbba8] pb-6 lg:flex-row lg:items-end lg:justify-between">
             <div>
-              <p className="text-xs uppercase tracking-[0.45em] text-stone-500">
-                Quiet Objects
+              <p className="text-xs uppercase tracking-[0.35em] text-[#8a715a]">
+                Atelier Market
               </p>
-              <h1 className="mt-4 max-w-3xl text-5xl font-semibold tracking-tight sm:text-6xl">
-                An exhibition page for still, beautiful objects that are meant
-                to be lived with.
+              <h1 className="mt-3 max-w-3xl text-4xl font-medium leading-tight sm:text-5xl">
+                A warm, editorial storefront inspired by boutique lifestyle retail.
               </h1>
             </div>
-            <div className="rounded-full border border-stone-900/10 bg-stone-900 px-5 py-3 text-sm text-stone-50">
-              Available for purchase
-            </div>
+            <a
+              href="#shop"
+              className="inline-flex w-fit rounded-full bg-[#2e251d] px-5 py-2.5 text-sm font-medium text-[#f8f4ee] transition hover:bg-[#4a3e34]"
+            >
+              Shop Bestsellers
+            </a>
           </div>
 
-          <div className="grid gap-8 lg:grid-cols-[1.3fr_0.7fr]">
-            <div className="space-y-6">
-              <p className="max-w-2xl text-lg leading-8 text-stone-700">
-                A calm storefront for ceremonial tea cups, meditation bead
-                strands, and incense crafted to bring warmth, rhythm, and
-                presence into everyday spaces.
+          <div className="mt-6 grid gap-5 lg:grid-cols-[1.2fr_0.8fr]">
+            <p className="text-base leading-8 text-[#5f4f41] sm:text-lg">
+              你的站点现在是“Anthropologie 风格灵感”版本：强调情绪化视觉、
+              生活方式文案、精选类目陈列。核心经营类目聚焦 Etsy 热销方向：
+              串珠首饰、茶杯、线香与香具、书法画作、亚麻衣服。
+            </p>
+            <div className="rounded-2xl bg-[#2f241c] p-5 text-[#f2e8dc]">
+              <p className="text-xs uppercase tracking-[0.3em] text-[#cab8a5]">
+                Brand Direction
               </p>
-              <div className="flex flex-col gap-3 sm:flex-row">
-                <a
-                  href="#collection"
-                  className="inline-flex items-center justify-center rounded-full bg-stone-900 px-6 py-3 text-sm font-medium text-stone-50 transition hover:bg-stone-700"
-                >
-                  View Collection
-                </a>
-                <a
-                  href="mailto:hello@quietobjects.com"
-                  className="inline-flex items-center justify-center rounded-full border border-stone-900/15 px-6 py-3 text-sm font-medium text-stone-900 transition hover:bg-white/60"
-                >
-                  Ask About Ordering
-                </a>
-              </div>
-            </div>
-
-            <div className="grid gap-4 rounded-[1.75rem] bg-stone-900 p-5 text-stone-50">
-              <p className="text-xs uppercase tracking-[0.35em] text-stone-400">
-                Curatorial Note
-              </p>
-              <p className="text-xl leading-8 text-stone-100">
-                Each piece is selected for quiet texture, natural material, and
-                a sense of ritual rather than excess.
-              </p>
-              <div className="grid grid-cols-3 gap-3 border-t border-white/10 pt-4 text-center">
-                <div>
-                  <p className="text-2xl font-semibold">03</p>
-                  <p className="mt-1 text-xs uppercase tracking-[0.2em] text-stone-400">
-                    Collections
-                  </p>
-                </div>
-                <div>
-                  <p className="text-2xl font-semibold">12</p>
-                  <p className="mt-1 text-xs uppercase tracking-[0.2em] text-stone-400">
-                    Pieces
-                  </p>
-                </div>
-                <div>
-                  <p className="text-2xl font-semibold">Now</p>
-                  <p className="mt-1 text-xs uppercase tracking-[0.2em] text-stone-400">
-                    Open Sales
-                  </p>
-                </div>
-              </div>
+              <ul className="mt-4 space-y-2 text-sm leading-7 text-[#ebdece]">
+                <li>• Editorial 首页结构</li>
+                <li>• 类目优先，爆品辅助</li>
+                <li>• 软性色盘 + 高级留白</li>
+                <li>• 适合后续接入 Shopify/Etsy feed</li>
+              </ul>
             </div>
           </div>
         </header>
 
-        <section id="collection" className="grid gap-5 lg:grid-cols-3">
-          {featuredItems.map((item) => (
+        <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {categoryFocus.map((cat) => (
             <article
-              key={item.name}
-              className="flex flex-col justify-between rounded-[2rem] border border-stone-900/10 bg-white/70 p-6 shadow-[0_16px_50px_rgba(83,54,26,0.08)] backdrop-blur"
+              key={cat.name}
+              className="rounded-3xl border border-[#ddcfbf] bg-[#fffaf4] p-5 transition hover:-translate-y-0.5 hover:shadow-md"
             >
-              <div>
-                <div className="flex items-start justify-between gap-4">
-                  <div>
-                    <p className="text-3xl font-semibold">{item.name}</p>
-                    <p className="mt-2 text-sm uppercase tracking-[0.25em] text-stone-500">
-                      {item.subtitle}
-                    </p>
-                  </div>
-                  <p className="rounded-full bg-stone-900 px-4 py-2 text-sm font-medium text-stone-50">
-                    {item.price}
-                  </p>
-                </div>
-                <p className="mt-8 text-base leading-7 text-stone-700">
-                  {item.description}
-                </p>
-              </div>
-
-              <div className="mt-10 border-t border-stone-900/10 pt-5">
-                <p className="text-sm text-stone-500">{item.note}</p>
-                <button className="mt-5 inline-flex rounded-full border border-stone-900/15 px-5 py-2.5 text-sm font-medium text-stone-900 transition hover:bg-stone-900 hover:text-stone-50">
-                  Inquire to Buy
-                </button>
-              </div>
+              <p className="text-xs uppercase tracking-[0.28em] text-[#8e7761]">{cat.en}</p>
+              <h2 className="mt-2 text-2xl font-medium">{cat.name}</h2>
+              <p className="mt-3 text-sm leading-6 text-[#6d5a48]">{cat.note}</p>
+              <ul className="mt-4 space-y-1.5 text-sm text-[#4f4033]">
+                {cat.products.map((item) => (
+                  <li key={item}>— {item}</li>
+                ))}
+              </ul>
             </article>
           ))}
         </section>
 
-        <section className="grid gap-5 rounded-[2rem] border border-stone-900/10 bg-white/60 p-6 shadow-[0_20px_80px_rgba(83,54,26,0.08)] lg:grid-cols-[0.9fr_1.1fr] lg:p-8">
-          <div className="space-y-4">
-            <p className="text-xs uppercase tracking-[0.4em] text-stone-500">
-              Why this page sells
-            </p>
-            <h2 className="text-3xl font-semibold tracking-tight">
-              Clear categories, calm tone, direct call to action.
-            </h2>
+        <section id="shop" className="rounded-3xl border border-[#d9c9b8] bg-[#fdf7ef] p-6 sm:p-8">
+          <div className="flex flex-col gap-3 border-b border-[#e7d9cb] pb-5 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p className="text-xs uppercase tracking-[0.35em] text-[#907761]">Most Wanted</p>
+              <h3 className="mt-2 text-3xl font-medium">Etsy 热销风格单品区</h3>
+            </div>
+            <button className="inline-flex w-fit rounded-full border border-[#bfa991] px-5 py-2 text-sm text-[#49392d] transition hover:bg-[#f1e4d7]">
+              View All Products
+            </button>
           </div>
-          <div className="grid gap-4 sm:grid-cols-3">
-            <div className="rounded-[1.5rem] bg-stone-950 px-5 py-6 text-stone-50">
-              <p className="text-sm text-stone-300">Trust</p>
-              <p className="mt-2 text-lg leading-7">
-                Small-batch language makes the objects feel specific and real.
-              </p>
-            </div>
-            <div className="rounded-[1.5rem] bg-[#c59f74] px-5 py-6 text-stone-950">
-              <p className="text-sm text-stone-800/70">Focus</p>
-              <p className="mt-2 text-lg leading-7">
-                Three featured groups keep the page easy to scan and remember.
-              </p>
-            </div>
-            <div className="rounded-[1.5rem] bg-stone-200 px-5 py-6 text-stone-900">
-              <p className="text-sm text-stone-500">Action</p>
-              <p className="mt-2 text-lg leading-7">
-                Inquiry buttons give you a simple path to start selling now.
-              </p>
-            </div>
+
+          <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {bestsellers.map((item) => (
+              <article
+                key={item.name}
+                className="rounded-2xl border border-[#e7dbcd] bg-white px-4 py-5"
+              >
+                <p className="text-xs uppercase tracking-[0.2em] text-[#9f866f]">{item.tag}</p>
+                <h4 className="mt-2 text-lg font-medium text-[#2d241c]">{item.name}</h4>
+                <p className="mt-3 text-sm text-[#7a6654]">Crafted for gifting and daily ritual.</p>
+                <div className="mt-5 flex items-center justify-between">
+                  <p className="text-lg font-semibold">{item.price}</p>
+                  <button className="rounded-full bg-[#2f251c] px-4 py-1.5 text-xs text-[#f6efe6]">
+                    Add
+                  </button>
+                </div>
+              </article>
+            ))}
           </div>
         </section>
-      </section>
+      </div>
     </main>
   );
 }
