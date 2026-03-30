@@ -39,15 +39,15 @@ const products = [
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#f8f4ee] text-[#2c231c]">
-      <div className="bg-[#221a14] px-4 py-2 text-center text-[11px] tracking-[0.16em] text-[#f1e6d9]">
+    <main className="min-h-screen bg-white text-[#1f2f28]">
+      <div className="bg-[#113a2f] px-4 py-2 text-center text-[11px] tracking-[0.16em] text-[#e8f5ef]">
         FREE SHIPPING ON ORDERS $75+ · HANDMADE EDIT FOR SPRING
       </div>
 
-      <header className="sticky top-0 z-40 border-b border-[#ded2c5] bg-[#f8f4ee]/95 backdrop-blur">
+      <header className="sticky top-0 z-40 border-b border-[#ded2c5] bg-white/95 backdrop-blur">
         <div className="mx-auto flex max-w-[1320px] items-center justify-between px-4 py-4 lg:px-8">
           <button className="text-sm uppercase tracking-[0.2em] text-[#5b4838]">menu</button>
-          <p className="text-xl tracking-[0.35em] text-[#2f241c]">MAHALAND</p>
+          <p className="text-xl tracking-[0.35em] text-[#113a2f]">MAHALAND</p>
           <div className="flex items-center gap-4 text-sm text-[#5b4838]">
             <span>search</span>
             <span>account</span>
@@ -65,7 +65,7 @@ export default function Home() {
       </header>
 
       <section className="mx-auto grid max-w-[1320px] gap-4 px-4 py-5 lg:grid-cols-[1.45fr_1fr] lg:px-8">
-        <article className="relative overflow-hidden rounded-[28px] border border-[#e1d6ca] bg-[#ece0d1] p-8 lg:p-12">
+        <article className="relative overflow-hidden rounded-[28px] border border-[#e1d6ca] bg-[#f5faf7] p-8 lg:p-12">
           <p className="text-xs uppercase tracking-[0.28em] text-[#7f6652]">editorial market</p>
           <h1 className="mt-4 max-w-3xl text-4xl leading-tight lg:text-6xl">
             同款精品感首页结构，类目聚焦 Etsy 热销方向
@@ -74,7 +74,7 @@ export default function Home() {
             以串珠首饰、茶杯、线香香具、书法画作、亚麻衣服为核心，做出“生活方式+礼物场景”导向的电商首页。
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <button className="rounded-full bg-[#2e241c] px-6 py-3 text-sm text-[#f9f1e7]">shop now</button>
+            <button className="rounded-full bg-[#0f3b2f] px-6 py-3 text-sm text-white">shop now</button>
             <button className="rounded-full border border-[#bda894] px-6 py-3 text-sm text-[#4d3b2e]">view collections</button>
           </div>
         </article>
@@ -99,7 +99,7 @@ export default function Home() {
       <section className="mx-auto max-w-[1320px] px-4 pb-3 lg:px-8">
         <div className="grid gap-4 lg:grid-cols-3">
           {editCards.map((c) => (
-            <article key={c.title} className="rounded-[24px] border border-[#e5d9cd] bg-[#f2e8dd] p-6">
+            <article key={c.title} className="rounded-[24px] border border-[#e5d9cd] bg-[#f7fcf9] p-6">
               <p className="text-[11px] uppercase tracking-[0.22em] text-[#8b735f]">the edit</p>
               <h2 className="mt-3 text-2xl">{c.title}</h2>
               <p className="mt-3 text-sm leading-7 text-[#5e4b3d]">{c.desc}</p>
@@ -126,7 +126,7 @@ export default function Home() {
               <h4 className="mt-2 text-base leading-6">{name}</h4>
               <div className="mt-4 flex items-center justify-between">
                 <p className="text-lg font-semibold">{price}</p>
-                <button className="rounded-full bg-[#2e241c] px-3 py-1.5 text-xs text-[#f7eee3]">quick add</button>
+                <button className="rounded-full bg-[#0f3b2f] px-3 py-1.5 text-xs text-white">quick add</button>
               </div>
             </article>
           ))}
@@ -134,7 +134,7 @@ export default function Home() {
       </section>
 
       <section className="mx-auto max-w-[1320px] px-4 pb-10 lg:px-8">
-        <div className="rounded-[28px] border border-[#e2d7ca] bg-[#efe2d3] p-8 text-center">
+        <div className="rounded-[28px] border border-[#e2d7ca] bg-[#f3faf6] p-8 text-center">
           <p className="text-[11px] uppercase tracking-[0.28em] text-[#896f5a]">email signup</p>
           <h4 className="mt-3 text-3xl">Get first access to new drops</h4>
           <p className="mx-auto mt-3 max-w-xl text-sm leading-7 text-[#5e4b3d]">
@@ -145,7 +145,7 @@ export default function Home() {
               placeholder="Enter your email"
               className="h-11 flex-1 rounded-full border border-[#cdb9a5] bg-white px-4 text-sm outline-none"
             />
-            <button className="h-11 rounded-full bg-[#2e241c] px-5 text-sm text-[#f6ede2]">subscribe</button>
+            <button className="h-11 rounded-full bg-[#0f3b2f] px-5 text-sm text-white">subscribe</button>
           </div>
         </div>
       </section>
