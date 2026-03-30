@@ -1,181 +1,154 @@
-const topCategories = [
+const navGroups = [
+  "new",
+  "dresses",
+  "clothing",
+  "shoes",
+  "bags",
+  "accessories",
+  "home & furniture",
+  "beauty",
+  "gifts",
+  "sale",
+];
+
+const quickCats = [
   "串珠首饰",
-  "茶杯与茶具",
-  "线香与香具",
-  "书法与画作",
+  "茶杯",
+  "线香",
+  "香具",
+  "书法画作",
   "亚麻衣服",
-  "礼物灵感",
 ];
 
-const featureTiles = [
-  {
-    eyebrow: "NEW EDIT",
-    title: "Beaded Jewelry For Everyday Ritual",
-    text: "Natural pearl, sandalwood, and gemstone strands styled for gifting and layering.",
-    cta: "Shop Jewelry",
-    tone: "bg-[#f2e7db]",
-  },
-  {
-    eyebrow: "TEA TABLE",
-    title: "Handmade Cups & Calm Morning Ceramics",
-    text: "Small-batch tea cups, saucers, and tactile pieces for slow-living homes.",
-    cta: "Shop Tea",
-    tone: "bg-[#e8dfd2]",
-  },
-  {
-    eyebrow: "WELLNESS",
-    title: "Incense, Holders & Quiet Corners",
-    text: "Low-smoke incense and brass holders designed for studio, reading, and meditation space.",
-    cta: "Shop Incense",
-    tone: "bg-[#efe6da]",
-  },
+const editCards = [
+  { title: "珠饰日常", desc: "天然石与珍珠串珠，礼物属性强、复购高。" },
+  { title: "茶席器物", desc: "手作茶杯与茶托，让家居场景更有内容。" },
+  { title: "线香香具", desc: "高频消耗品+器具搭配，客单价更稳定。" },
 ];
 
-const productCards = [
-  { name: "Freshwater Pearl Bead Necklace", category: "串珠首饰", price: "$52", badge: "Best Seller" },
-  { name: "Hand-thrown Matcha Tea Cup", category: "茶杯与茶具", price: "$48", badge: "Trending" },
-  { name: "Brass Crescent Incense Holder", category: "线香与香具", price: "$34", badge: "Popular Gift" },
-  { name: "Ink Brush Calligraphy Art Print", category: "书法与画作", price: "$59", badge: "Editor Pick" },
-  { name: "Relaxed Linen Button Shirt", category: "亚麻衣服", price: "$72", badge: "Top Rated" },
-  { name: "108 Sandalwood Prayer Beads", category: "串珠首饰", price: "$39", badge: "Most Loved" },
-  { name: "Ceramic Teacup Set of 2", category: "茶杯与茶具", price: "$66", badge: "Back in Stock" },
-  { name: "Lotus Bronze Incense Plate", category: "线香与香具", price: "$41", badge: "New Arrival" },
-];
+const products = [
+  ["淡水珍珠手链", "$39", "串珠首饰"],
+  ["檀木108念珠", "$45", "串珠首饰"],
+  ["手作陶瓷茶杯", "$52", "茶杯"],
+  ["黄铜月牙香插", "$34", "香具"],
+  ["低烟沉香线香", "$26", "线香"],
+  ["水墨书法装饰画", "$62", "书法画作"],
+  ["亚麻宽松衬衫", "$68", "亚麻衣服"],
+  ["亚麻系带长裙", "$76", "亚麻衣服"],
+] as const;
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#f7f2eb] text-[#2f241c]">
-      <div className="sticky top-0 z-30 border-b border-[#dfd1c1] bg-[#f7f2eb]/95 backdrop-blur">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-8">
-          <p className="text-sm tracking-[0.35em] text-[#715a46]">MAHALAND</p>
-          <nav className="hidden items-center gap-6 text-sm text-[#4a3a2d] md:flex">
-            <a href="#new" className="hover:text-black">New</a>
-            <a href="#shop" className="hover:text-black">Shop</a>
-            <a href="#collections" className="hover:text-black">Collections</a>
-            <a href="#story" className="hover:text-black">Our Story</a>
-          </nav>
-          <button className="rounded-full border border-[#c4b09b] px-4 py-1.5 text-xs uppercase tracking-[0.15em] text-[#4b3a2d]">
-            Cart (0)
-          </button>
-        </div>
+    <main className="min-h-screen bg-[#f8f4ee] text-[#2c231c]">
+      <div className="bg-[#221a14] px-4 py-2 text-center text-[11px] tracking-[0.16em] text-[#f1e6d9]">
+        FREE SHIPPING ON ORDERS $75+ · HANDMADE EDIT FOR SPRING
       </div>
 
-      <section className="mx-auto grid w-full max-w-7xl gap-5 px-4 pb-4 pt-6 sm:px-8 lg:grid-cols-[1.35fr_0.65fr]">
-        <article className="relative overflow-hidden rounded-[2rem] border border-[#dfd2c4] bg-[#efe3d5] p-7 sm:p-10">
-          <p className="text-xs uppercase tracking-[0.35em] text-[#8b705a]">Spring Edit 2026</p>
-          <h1 className="mt-5 max-w-3xl text-4xl leading-tight sm:text-5xl lg:text-6xl">
-            Artisan Home & Style — inspired by editorial boutique shopping.
+      <header className="sticky top-0 z-40 border-b border-[#ded2c5] bg-[#f8f4ee]/95 backdrop-blur">
+        <div className="mx-auto flex max-w-[1320px] items-center justify-between px-4 py-4 lg:px-8">
+          <button className="text-sm uppercase tracking-[0.2em] text-[#5b4838]">menu</button>
+          <p className="text-xl tracking-[0.35em] text-[#2f241c]">MAHALAND</p>
+          <div className="flex items-center gap-4 text-sm text-[#5b4838]">
+            <span>search</span>
+            <span>account</span>
+            <span>cart(0)</span>
+          </div>
+        </div>
+
+        <nav className="mx-auto hidden max-w-[1320px] items-center gap-6 overflow-x-auto px-8 pb-3 text-[13px] uppercase tracking-[0.13em] text-[#4d3d30] lg:flex">
+          {navGroups.map((g) => (
+            <a key={g} href="#" className="whitespace-nowrap hover:text-black">
+              {g}
+            </a>
+          ))}
+        </nav>
+      </header>
+
+      <section className="mx-auto grid max-w-[1320px] gap-4 px-4 py-5 lg:grid-cols-[1.45fr_1fr] lg:px-8">
+        <article className="relative overflow-hidden rounded-[28px] border border-[#e1d6ca] bg-[#ece0d1] p-8 lg:p-12">
+          <p className="text-xs uppercase tracking-[0.28em] text-[#7f6652]">editorial market</p>
+          <h1 className="mt-4 max-w-3xl text-4xl leading-tight lg:text-6xl">
+            同款精品感首页结构，类目聚焦 Etsy 热销方向
           </h1>
-          <p className="mt-6 max-w-2xl text-base leading-8 text-[#5d4b3b] sm:text-lg">
-            Discover Etsy-leading categories built around ritual and gifting: beaded jewelry, tea cups,
-            incense & holders, calligraphy artwork, and airy linen clothing.
+          <p className="mt-5 max-w-2xl text-[15px] leading-8 text-[#5c4a3c] lg:text-lg">
+            以串珠首饰、茶杯、线香香具、书法画作、亚麻衣服为核心，做出“生活方式+礼物场景”导向的电商首页。
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <a
-              href="#shop"
-              className="rounded-full bg-[#2f241c] px-6 py-3 text-sm font-medium text-[#f7eee3] transition hover:bg-[#4c3d31]"
-            >
-              Shop Bestsellers
-            </a>
-            <a
-              href="#collections"
-              className="rounded-full border border-[#bda68f] px-6 py-3 text-sm font-medium text-[#463629] transition hover:bg-[#f4e8da]"
-            >
-              Browse Collections
-            </a>
+            <button className="rounded-full bg-[#2e241c] px-6 py-3 text-sm text-[#f9f1e7]">shop now</button>
+            <button className="rounded-full border border-[#bda894] px-6 py-3 text-sm text-[#4d3b2e]">view collections</button>
           </div>
         </article>
 
-        <aside className="rounded-[2rem] border border-[#e2d4c6] bg-[#fffaf3] p-6">
-          <p className="text-xs uppercase tracking-[0.35em] text-[#8f755f]">Top Categories</p>
-          <ul className="mt-5 space-y-2.5 text-sm text-[#4d3f32]">
-            {topCategories.map((cat) => (
-              <li
-                key={cat}
-                className="flex items-center justify-between rounded-xl border border-[#eadfd3] bg-white px-3 py-2"
+        <article className="rounded-[28px] border border-[#e2d8cd] bg-white p-6 lg:p-8">
+          <p className="text-xs uppercase tracking-[0.28em] text-[#826a57]">shop by category</p>
+          <div className="mt-4 grid gap-2">
+            {quickCats.map((c) => (
+              <a
+                key={c}
+                className="flex items-center justify-between rounded-xl border border-[#e9dfd4] bg-[#fcf9f5] px-4 py-3 text-sm hover:bg-[#f3e8db]"
+                href="#"
               >
-                <span>{cat}</span>
+                <span>{c}</span>
                 <span>→</span>
-              </li>
+              </a>
             ))}
-          </ul>
-        </aside>
+          </div>
+        </article>
       </section>
 
-      <section id="new" className="mx-auto grid w-full max-w-7xl gap-4 px-4 py-6 sm:px-8 lg:grid-cols-3">
-        {featureTiles.map((tile) => (
-          <article key={tile.title} className={`rounded-[1.7rem] border border-[#e0d2c3] p-6 ${tile.tone}`}>
-            <p className="text-xs uppercase tracking-[0.3em] text-[#8b705b]">{tile.eyebrow}</p>
-            <h2 className="mt-3 text-2xl leading-tight">{tile.title}</h2>
-            <p className="mt-4 text-sm leading-7 text-[#5f4c3c]">{tile.text}</p>
-            <button className="mt-6 rounded-full border border-[#bda791] px-4 py-2 text-xs uppercase tracking-[0.14em] text-[#443327]">
-              {tile.cta}
-            </button>
-          </article>
-        ))}
+      <section className="mx-auto max-w-[1320px] px-4 pb-3 lg:px-8">
+        <div className="grid gap-4 lg:grid-cols-3">
+          {editCards.map((c) => (
+            <article key={c.title} className="rounded-[24px] border border-[#e5d9cd] bg-[#f2e8dd] p-6">
+              <p className="text-[11px] uppercase tracking-[0.22em] text-[#8b735f]">the edit</p>
+              <h2 className="mt-3 text-2xl">{c.title}</h2>
+              <p className="mt-3 text-sm leading-7 text-[#5e4b3d]">{c.desc}</p>
+              <button className="mt-5 rounded-full border border-[#c6b09b] px-4 py-2 text-xs uppercase tracking-[0.14em]">explore</button>
+            </article>
+          ))}
+        </div>
       </section>
 
-      <section id="shop" className="mx-auto w-full max-w-7xl px-4 pb-4 pt-8 sm:px-8">
-        <div className="flex flex-wrap items-end justify-between gap-4 border-b border-[#e1d4c6] pb-5">
+      <section className="mx-auto max-w-[1320px] px-4 py-8 lg:px-8">
+        <div className="flex items-end justify-between border-b border-[#e2d6ca] pb-4">
           <div>
-            <p className="text-xs uppercase tracking-[0.35em] text-[#8d735d]">Most Wanted</p>
-            <h3 className="mt-2 text-3xl">Etsy-style Bestsellers</h3>
+            <p className="text-[11px] uppercase tracking-[0.28em] text-[#8b735f]">bestsellers</p>
+            <h3 className="mt-2 text-3xl">最畅销类目商品区</h3>
           </div>
-          <div className="flex flex-wrap gap-2 text-xs text-[#5b493b]">
-            {topCategories.slice(0, 5).map((f) => (
-              <button key={f} className="rounded-full border border-[#ccb8a3] px-3 py-1.5 hover:bg-[#f3e7d9]">
-                {f}
-              </button>
-            ))}
-          </div>
+          <button className="rounded-full border border-[#ccb7a2] px-4 py-2 text-sm">view all</button>
         </div>
 
-        <div className="mt-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-          {productCards.map((item) => (
-            <article
-              key={item.name}
-              className="group rounded-2xl border border-[#e6dbcf] bg-white p-4 transition hover:-translate-y-0.5 hover:shadow-md"
-            >
-              <div className="aspect-[4/5] rounded-xl bg-gradient-to-b from-[#efe4d7] to-[#e1d1be]" />
-              <p className="mt-4 text-[11px] uppercase tracking-[0.2em] text-[#907763]">{item.badge}</p>
-              <h4 className="mt-2 text-base leading-6 text-[#2d241d]">{item.name}</h4>
-              <p className="mt-1 text-sm text-[#7d6654]">{item.category}</p>
+        <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {products.map(([name, price, cat]) => (
+            <article key={name} className="rounded-2xl border border-[#e7ddd2] bg-white p-4">
+              <div className="aspect-[4/5] rounded-xl bg-gradient-to-b from-[#eee1d3] to-[#ddcab4]" />
+              <p className="mt-3 text-[11px] uppercase tracking-[0.18em] text-[#947c68]">{cat}</p>
+              <h4 className="mt-2 text-base leading-6">{name}</h4>
               <div className="mt-4 flex items-center justify-between">
-                <p className="text-lg font-semibold">{item.price}</p>
-                <button className="rounded-full bg-[#2f241c] px-3 py-1.5 text-xs text-[#f8efe6] opacity-90 transition group-hover:opacity-100">
-                  Quick Add
-                </button>
+                <p className="text-lg font-semibold">{price}</p>
+                <button className="rounded-full bg-[#2e241c] px-3 py-1.5 text-xs text-[#f7eee3]">quick add</button>
               </div>
             </article>
           ))}
         </div>
       </section>
 
-      <section id="collections" className="mx-auto grid w-full max-w-7xl gap-4 px-4 py-10 sm:px-8 lg:grid-cols-[1.2fr_0.8fr]">
-        <article className="rounded-[2rem] border border-[#ddcfc0] bg-[#f0e4d5] p-7">
-          <p className="text-xs uppercase tracking-[0.35em] text-[#8a715a]">Seasonal Curation</p>
-          <h3 className="mt-3 text-3xl leading-tight">Build your ritual corner: wear, sip, scent, and art.</h3>
-          <p className="mt-4 max-w-2xl text-sm leading-7 text-[#5e4c3c]">
-            Curated collections that cross-category naturally increase basket size: bead + tea + incense gift sets,
-            calligraphy wall accents for tea corners, and linen apparel for a complete lifestyle story.
+      <section className="mx-auto max-w-[1320px] px-4 pb-10 lg:px-8">
+        <div className="rounded-[28px] border border-[#e2d7ca] bg-[#efe2d3] p-8 text-center">
+          <p className="text-[11px] uppercase tracking-[0.28em] text-[#896f5a]">email signup</p>
+          <h4 className="mt-3 text-3xl">Get first access to new drops</h4>
+          <p className="mx-auto mt-3 max-w-xl text-sm leading-7 text-[#5e4b3d]">
+            每周更新选品与主题合集，优先获取串珠新品、茶器上新、香具补货和亚麻季节款。
           </p>
-        </article>
-
-        <article id="story" className="rounded-[2rem] border border-[#e0d3c5] bg-[#fffaf3] p-7">
-          <p className="text-xs uppercase tracking-[0.35em] text-[#8f755f]">From Studio</p>
-          <p className="mt-3 text-sm leading-7 text-[#5d4a3a]">
-            Every item is selected for texture, utility, and visual calm — the same principles behind modern
-            boutique marketplaces, now adapted for your own brand voice.
-          </p>
-          <button className="mt-6 rounded-full border border-[#cbb7a3] px-5 py-2 text-sm text-[#49392d]">
-            Read Journal
-          </button>
-        </article>
+          <div className="mx-auto mt-5 flex max-w-lg flex-col gap-2 sm:flex-row">
+            <input
+              placeholder="Enter your email"
+              className="h-11 flex-1 rounded-full border border-[#cdb9a5] bg-white px-4 text-sm outline-none"
+            />
+            <button className="h-11 rounded-full bg-[#2e241c] px-5 text-sm text-[#f6ede2]">subscribe</button>
+          </div>
+        </div>
       </section>
-
-      <footer className="border-t border-[#dfd1c2] px-4 py-7 text-center text-xs tracking-[0.2em] text-[#7d6755] sm:px-8">
-        MAHALAND · ARTISAN LIVING MARKET
-      </footer>
     </main>
   );
 }
