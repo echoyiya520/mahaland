@@ -17,32 +17,27 @@ async function getItems(): Promise<Item[]> {
     .filter((f) => /\.(jpg|jpeg|png|webp)$/i.test(f))
     .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
 
-  // 默认每 3 张图作为 1 个珠串商品；但可把指定图片单独成组
-  const groupSize = 3;
-  const forceSingle = new Set(["jewelry-004.jpg", "jewelry-013.jpg", "jewelry-019.jpg"]); // 颜色不一致的款式单独展示
-  const grouped: string[][] = [];
-  let buffer: string[] = [];
+  // 手动归组：尽量把同一珠串不同角度放在一起
+  const curatedGroups: string[][] = [
+    ["jewelry-001.jpg", "jewelry-002.jpg", "jewelry-003.jpg"],
+    ["jewelry-005.jpg", "jewelry-006.jpg", "jewelry-007.jpg"],
+    ["jewelry-008.jpg", "jewelry-009.jpg", "jewelry-010.jpg"],
+    ["jewelry-011.jpg", "jewelry-012.jpg", "jewelry-014.jpg"],
+    ["jewelry-015.jpg", "jewelry-016.jpg", "jewelry-017.jpg"],
+    ["jewelry-018.jpg", "jewelry-020.jpg", "jewelry-021.jpg"],
+    ["jewelry-019.jpg"], // 烟紫色单独款
+    ["jewelry-022.jpg", "jewelry-023.jpg", "jewelry-024.jpg"],
+    ["jewelry-025.jpg"],
+  ];
 
-  const flushBuffer = () => {
-    while (buffer.length >= groupSize) {
-      grouped.push(buffer.slice(0, groupSize));
-      buffer = buffer.slice(groupSize);
-    }
-  };
+  const existing = new Set(images);
+  const grouped = curatedGroups
+    .map((g) => g.filter((f) => existing.has(f)))
+    .filter((g) => g.length > 0);
 
-  for (const file of images) {
-    if (forceSingle.has(file)) {
-      flushBuffer();
-      grouped.push([file]);
-    } else {
-      buffer.push(file);
-    }
-  }
-
-  flushBuffer();
-  if (buffer.length > 0) {
-    grouped.push(buffer);
-  }
+  const used = new Set(grouped.flat());
+  const leftovers = images.filter((f) => !used.has(f));
+  for (const f of leftovers) grouped.push([f]);
 
   return grouped.map((groupImages, idx) => {
     const groupIndex = idx + 1;
@@ -63,7 +58,7 @@ export default async function JewelryPage() {
   return (
     <main className="min-h-screen bg-white p-6 text-[#1f2f28] lg:p-8">
       <h1 className="text-3xl">Jewelry 类目（统一 $300）</h1>
-      <p className="mt-2 text-sm text-[#5d6b64]">共 {items.length} 个珠串商品（默认每个商品 3 张介绍图，颜色不一致款会单独展示）</p>
+      <p className="mt-2 text-sm text-[#5d6b64]">共 {items.length} 个珠串商品（已按同款角度图手动归组，颜色不一致款单独展示）</p>
 
       <div className="mt-6 grid gap-4 sm:grid-cols-1 lg:grid-cols-2">
         {items.map((item) => (
