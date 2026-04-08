@@ -19,7 +19,7 @@ async function getItems(): Promise<Item[]> {
 
   // 默认每 3 张图作为 1 个珠串商品；但可把指定图片单独成组
   const groupSize = 3;
-  const forceSingle = new Set(["jewelry-004.jpg", "jewelry-019.jpg"]); // 颜色不一致的款式单独展示
+  const forceSingle = new Set(["jewelry-004.jpg", "jewelry-013.jpg", "jewelry-019.jpg"]); // 颜色不一致的款式单独展示
   const grouped: string[][] = [];
   let buffer: string[] = [];
 
