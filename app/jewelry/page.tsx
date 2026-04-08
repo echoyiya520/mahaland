@@ -19,15 +19,15 @@ async function getItems(): Promise<Item[]> {
 
   // 手动归组：尽量把同一珠串不同角度放在一起
   const curatedGroups: string[][] = [
-    ["jewelry-011.jpg", "jewelry-012.jpg", "jewelry-014.jpg"], // 绿色手串同款（固定放一起）
+    ["jewelry-016.jpg", "jewelry-017.jpg", "jewelry-018.jpg"], // 绿色手串同款（固定三图）
+    ["jewelry-011.jpg", "jewelry-012.jpg", "jewelry-014.jpg"],
     ["jewelry-001.jpg", "jewelry-002.jpg", "jewelry-003.jpg"],
     ["jewelry-005.jpg", "jewelry-006.jpg", "jewelry-007.jpg"],
     ["jewelry-008.jpg", "jewelry-009.jpg", "jewelry-010.jpg"],
-    ["jewelry-015.jpg", "jewelry-016.jpg", "jewelry-017.jpg"],
-    ["jewelry-018.jpg", "jewelry-020.jpg", "jewelry-021.jpg"],
+    ["jewelry-015.jpg"],
     ["jewelry-019.jpg"], // 烟紫色单独款
-    ["jewelry-022.jpg", "jewelry-023.jpg", "jewelry-024.jpg"],
-    ["jewelry-025.jpg"],
+    ["jewelry-020.jpg", "jewelry-021.jpg", "jewelry-022.jpg"],
+    ["jewelry-023.jpg", "jewelry-024.jpg", "jewelry-025.jpg"],
   ];
 
   const existing = new Set(images);
