@@ -20,8 +20,8 @@ async function getItems(): Promise<Item[]> {
   // 手动归组：尽量把同一珠串不同角度放在一起
   const curatedGroups: string[][] = [
     ["jewelry-011.jpg", "jewelry-012.jpg", "jewelry-014.jpg"], // 绿色手串同款（用户确认）
-    ["jewelry-016.jpg", "jewelry-017.jpg"],
-    ["jewelry-019.jpg", "jewelry-020.jpg"],
+    ["jewelry-016.jpg", "jewelry-017.jpg", "jewelry-019.jpg"], // 第一排右 + 第二排左中同款合并
+    ["jewelry-020.jpg"],
     ["jewelry-021.jpg", "jewelry-022.jpg"],
     ["jewelry-024.jpg", "jewelry-025.jpg"],
     ["jewelry-001.jpg", "jewelry-002.jpg", "jewelry-003.jpg"],
@@ -60,7 +60,7 @@ export default async function JewelryPage() {
   return (
     <main className="min-h-screen bg-white p-6 text-[#1f2f28] lg:p-8">
       <h1 className="text-3xl">Jewelry 类目（统一 $300）</h1>
-      <p className="mt-1 text-xs text-[#8aa198]">分组版本：G-20260408-2</p>
+      <p className="mt-1 text-xs text-[#8aa198]">分组版本：G-20260408-3</p>
       <p className="mt-2 text-sm text-[#5d6b64]">共 {items.length} 个珠串商品（已按同款角度图手动归组，颜色不一致款单独展示）</p>
 
       <div className="mt-6 grid gap-4 sm:grid-cols-1 lg:grid-cols-2">
