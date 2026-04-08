@@ -17,14 +17,31 @@ async function getItems(): Promise<Item[]> {
     .filter((f) => /\.(jpg|jpeg|png|webp)$/i.test(f))
     .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
 
-  // 每 3 张图作为 1 个珠串商品（三张介绍图）
+  // 默认每 3 张图作为 1 个珠串商品；但可把指定图片单独成组
   const groupSize = 3;
-  const usableCount = Math.floor(images.length / groupSize) * groupSize;
-  const trimmed = images.slice(0, usableCount);
+  const forceSingle = new Set(["jewelry-019.jpg"]); // 左边烟紫色单独展示
   const grouped: string[][] = [];
+  let buffer: string[] = [];
 
-  for (let i = 0; i < trimmed.length; i += groupSize) {
-    grouped.push(trimmed.slice(i, i + groupSize));
+  const flushBuffer = () => {
+    while (buffer.length >= groupSize) {
+      grouped.push(buffer.slice(0, groupSize));
+      buffer = buffer.slice(groupSize);
+    }
+  };
+
+  for (const file of images) {
+    if (forceSingle.has(file)) {
+      flushBuffer();
+      grouped.push([file]);
+    } else {
+      buffer.push(file);
+    }
+  }
+
+  flushBuffer();
+  if (buffer.length > 0) {
+    grouped.push(buffer);
   }
 
   return grouped.map((groupImages, idx) => {
@@ -46,7 +63,7 @@ export default async function JewelryPage() {
   return (
     <main className="min-h-screen bg-white p-6 text-[#1f2f28] lg:p-8">
       <h1 className="text-3xl">Jewelry 类目（统一 $300）</h1>
-      <p className="mt-2 text-sm text-[#5d6b64]">共 {items.length} 个珠串商品（每个商品固定 3 张介绍图，单卡展示）</p>
+      <p className="mt-2 text-sm text-[#5d6b64]">共 {items.length} 个珠串商品（默认每个商品 3 张介绍图，烟紫色款单独展示）</p>
 
       <div className="mt-6 grid gap-4 sm:grid-cols-1 lg:grid-cols-2">
         {items.map((item) => (
