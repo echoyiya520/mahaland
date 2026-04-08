@@ -19,23 +19,30 @@ async function getItems(): Promise<Item[]> {
 
   // 每 3 张图作为 1 个珠串商品（三张介绍图）
   const groupSize = 3;
-  const items: Item[] = [];
+  const grouped: string[][] = [];
 
   for (let i = 0; i < images.length; i += groupSize) {
-    const groupImages = images.slice(i, i + groupSize);
-    const groupIndex = Math.floor(i / groupSize) + 1;
+    grouped.push(images.slice(i, i + groupSize));
+  }
+
+  // 如果最后不足 3 张，合并到上一组，避免出现 1-2 张单独成组
+  if (grouped.length > 1 && grouped[grouped.length - 1].length < 3) {
+    const tail = grouped.pop()!;
+    grouped[grouped.length - 1].push(...tail);
+  }
+
+  return grouped.map((groupImages, idx) => {
+    const groupIndex = idx + 1;
     const group = `同款珠串 ${String(groupIndex).padStart(2, "0")}`;
 
-    items.push({
+    return {
       id: `jewelry-${String(groupIndex).padStart(3, "0")}`,
       name: `${group} · 介绍图 ${groupImages.length} 张`,
       images: groupImages.map((file) => `/jewelry/${file}`),
       group,
       price: "$300",
-    });
-  }
-
-  return items;
+    };
+  });
 }
 
 export default async function JewelryPage() {
