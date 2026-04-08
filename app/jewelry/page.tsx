@@ -19,16 +19,12 @@ async function getItems(): Promise<Item[]> {
 
   // 每 3 张图作为 1 个珠串商品（三张介绍图）
   const groupSize = 3;
+  const usableCount = Math.floor(images.length / groupSize) * groupSize;
+  const trimmed = images.slice(0, usableCount);
   const grouped: string[][] = [];
 
-  for (let i = 0; i < images.length; i += groupSize) {
-    grouped.push(images.slice(i, i + groupSize));
-  }
-
-  // 如果最后不足 3 张，合并到上一组，避免出现 1-2 张单独成组
-  if (grouped.length > 1 && grouped[grouped.length - 1].length < 3) {
-    const tail = grouped.pop()!;
-    grouped[grouped.length - 1].push(...tail);
+  for (let i = 0; i < trimmed.length; i += groupSize) {
+    grouped.push(trimmed.slice(i, i + groupSize));
   }
 
   return grouped.map((groupImages, idx) => {
