@@ -58,6 +58,7 @@ export default async function JewelryPage() {
   return (
     <main className="min-h-screen bg-white p-6 text-[#1f2f28] lg:p-8">
       <h1 className="text-3xl">Jewelry 类目（统一 $300）</h1>
+      <p className="mt-1 text-xs text-[#8aa198]">分组版本：G-20260408-2</p>
       <p className="mt-2 text-sm text-[#5d6b64]">共 {items.length} 个珠串商品（已按同款角度图手动归组，颜色不一致款单独展示）</p>
 
       <div className="mt-6 grid gap-4 sm:grid-cols-1 lg:grid-cols-2">
