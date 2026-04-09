@@ -20,8 +20,8 @@ async function getItems(): Promise<Item[]> {
   const curatedGroups: string[][] = [
     ["jewelry-011.jpg", "jewelry-012.jpg", "jewelry-014.jpg"],
     ["jewelry-016.jpg", "jewelry-017.jpg", "jewelry-019.jpg"],
-    ["jewelry-020.jpg"],
-    ["jewelry-021.jpg", "jewelry-022.jpg"],
+    ["jewelry-020.jpg", "jewelry-021.jpg"], // 用户确认这两张是同一款
+    ["jewelry-022.jpg"],
     ["jewelry-024.jpg", "jewelry-025.jpg"],
     ["jewelry-001.jpg", "jewelry-002.jpg", "jewelry-003.jpg"],
     ["jewelry-005.jpg", "jewelry-006.jpg", "jewelry-007.jpg"],
