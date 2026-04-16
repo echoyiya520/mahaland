@@ -23,6 +23,14 @@ export default function Home() {
           <p className="text-xl tracking-[0.35em] text-[#113a2f]">MAHALAND</p>
           <div className="text-sm text-[#44554d]">Rebuilding catalog</div>
         </div>
+
+        <nav className="mx-auto flex max-w-[1320px] items-center gap-5 overflow-x-auto px-4 pb-3 text-[13px] uppercase tracking-[0.12em] text-[#4d5f56] lg:px-8">
+          {categories.map((cat) => (
+            <Link key={`nav-${cat.name}`} href={cat.href} className="whitespace-nowrap hover:text-[#113a2f]">
+              {cat.name}
+            </Link>
+          ))}
+        </nav>
       </header>
 
       <section className="mx-auto max-w-[1100px] px-4 py-12 lg:px-8">
